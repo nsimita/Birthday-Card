@@ -251,13 +251,20 @@
       
       animateConfetti();
     }
-    
-    // Handle window resize
-    window.addEventListener('resize', function() {
-      const canvas = document.getElementById("confetti");
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
+  // Handle window resize (including phone orientation change)
+window.addEventListener('resize', resizeCanvas);
+window.addEventListener('orientationchange', resizeCanvas);
+
+// Resize canvas function
+function resizeCanvas() {
+  const canvas = document.getElementById("confetti");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
+// Initial canvas size setup
+resizeCanvas();
+
   </script>
 </body>
 </html>
